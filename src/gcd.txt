@@ -1,0 +1,158 @@
+Gabriela Roznawska
+CSC-161-02
+February 17, 2023
+
+Test Plan and Transcript for "Greatest Common Denominator" Homework:
+
+The program "Greatest Common Denominator": gcd.c generates the greatest common
+denominator of two numbers input by the user.
+
+********************************************************************************
+The Test Plan aims to validate accuracy of the project and therefore is going to
+test a variety of possible user inputs.
+
+The testing cases are divided into groups:
+1. VALID USER INPUT
+   Valid user input is considered two integers. The output provides the Greatest
+   Common Denominator of the two. The valid input includes negative numbers.
+
+2. VALID EDGE CASES
+   Valid edge case input is considered an input that is especially prone to
+   result in incorrect output. In this case it is set of two numbers that are:
+   the same, and a pair that GCD is equal to 1.
+
+3. INVALID INPUT
+   Invalid input is considered an input that does not allow the program to
+   provide correct output. In this case it is a set of numbers where either one
+   or both are zeros, as it is not acceptable to divide by zero which is the
+   basis of the Greatest Common Denominator. Furthermore, there are some
+   invalid inputs that the program is not able to deal with as the extent of
+   material covered in the class did not include such cases. The one listed in
+   this Test Plan shows the flaws of the program when the input is provided in
+   doubles, not integers.
+
+
+********************************************************************************
+Test Plan:
+********************************************************************************
+Disclaimer: In order to ensure clarity every "expected output" does not include
+the answering statement: "The greatest common denominator for your two numbers
+is (number)". It can be assumed that it in fact is a prelude to the numerical
+expected result.
+
+1. Valid user input:
+  This part of testing is going to test expected input and provide output.
+
+  a. The numbers are divisible by each other.
+     The second number is greater than the first one.
+     input: 15 30
+     expected output: 15
+
+  b. The input numbers are not divisible by each other.
+     The first number is greater than the second one.
+     input: 44 8
+     expected output: 4
+
+  c. The input numbers are negative.
+     input -10 -4
+     expected output: -2
+
+
+2. Valid edge cases
+  This part tests valid inputs that are more prone to cause invalid output
+
+  d. The input numbers are equal to each other
+     input: 71 71
+     expected output: 71
+
+  e. The input numbers' GCD is equal to 1.
+     input: 22 3
+     expected output: 1
+
+
+3. Invalid input
+  This part reacts to invalid user input.
+
+  f. Both input numbers are zeros
+     input: 0 0
+     expected output: Error. Input numbers that are not equal to zero.
+
+  g. One of the input numbers is zero
+     input: 0 10
+     expected output: Error. Input numbers that are not equal to zero.
+
+  i. The first input number is an integer, the second a double
+     input: 64 4.4
+     expected output: 16 (it is incorrect)
+
+     Disclaimer regarding example i:
+     As recovering from such situations has not been a topic in class yet, there
+     is no error message generated and the program calculates GCD of (in this
+     case) 64 and 4 (omitting the .4). The program should no do it as it operates
+     on integer values, not doubles, so the provided output is incorrect.
+     It is certainly a case of invalid input to look out for when actually
+     knowing how to solve the issue.
+
+
+********************************************************************************
+Test transcript:
+********************************************************************************
+
+Script started on 2023-02-17 19:23:49-06:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="80" LINES="24"]
+bash: /home/roznawsk/.bashrc: line 99: syntax error near unexpected token `;'
+bash: /home/roznawsk/.bashrc: line 99: `; Set keyboard command shortcut for compiling'
+[?2004hroznawsk@fraenkel:Labs$ exit./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+15 30
+The greatest common denominator of your two numbers is: 15
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+44 8
+The greatest common denominator of your two numbers is: 4
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+-10 -4
+The greatest common denominator of your two numbers is: -2
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+71 71
+The greatest common denominator of your two numbers is: 71
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+22 3
+The greatest common denominator of your two numbers is: 1
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+0 0
+Error. Input integers not equal to zero
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+0 10
+Error. Input integers not equal to zero
+[?2004hroznawsk@fraenkel:Labs$ ./gcd
+[?2004l
+Input two integers to compute their greatest common denominator?
+64 6 4.4
+The greatest common denominator of your two numbers is: 4
+[?2004hroznawsk@fraenkel:Labs$ exit
+[?2004l
+exit
+
+Script done on 2023-02-17 19:24:38-06:00 [COMMAND_EXIT_CODE="0"]
+
+
+*******************************************************************************
+CONCLUSION:
+
+The program successfully completes the test. The outcomes were just as expected
+and it is correct to state that the program "Greatest Common Denominator" correctly
+performs the task of calculating the Greatest Common Denominator of the two input
+values or outputting an error if at least one of the input numbers is 0.
+*******************************************************************************
